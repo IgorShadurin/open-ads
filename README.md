@@ -154,6 +154,32 @@ Use `OpenAdsRewardedSession` and `OpenAdsRewardedView` for rewarded flow with ca
 
 Full sample: `swift/OpenAdsSDK/Examples/IntegrationExample.swift`
 
+## Showcase
+
+Click any thumbnail to open the full-size image.
+
+| Landing | Login | Dashboard |
+| --- | --- | --- |
+| [![Landing](./screenshots/01-landing.png)](./screenshots/01-landing.png) | [![Login](./screenshots/02-login.png)](./screenshots/02-login.png) | [![Dashboard](./screenshots/03-dashboard.png)](./screenshots/03-dashboard.png) |
+
+| Dashboard With Ad | Admin | Admin Search |
+| --- | --- | --- |
+| [![Dashboard With Ad](./screenshots/04-dashboard-with-ad.png)](./screenshots/04-dashboard-with-ad.png) | [![Admin](./screenshots/05-admin.png)](./screenshots/05-admin.png) | [![Admin Search](./screenshots/06-admin-search.png)](./screenshots/06-admin-search.png) |
+
+| Register Open | Dashboard Stats |  |
+| --- | --- | --- |
+| [![Register Open](./screenshots/07-register-open.png)](./screenshots/07-register-open.png) | [![Dashboard Stats](./screenshots/08-dashboard-stats.png)](./screenshots/08-dashboard-stats.png) |  |
+
+### Manual QA States (Filled Data)
+
+| Dashboard Initial | Dashboard Two Apps | Dashboard Global Ad |
+| --- | --- | --- |
+| [![Dashboard Initial](./screenshots/manual-qa/01-dashboard-initial.png)](./screenshots/manual-qa/01-dashboard-initial.png) | [![Dashboard Two Apps](./screenshots/manual-qa/02-dashboard-two-apps.png)](./screenshots/manual-qa/02-dashboard-two-apps.png) | [![Dashboard Global Ad](./screenshots/manual-qa/03-dashboard-global-ad.png)](./screenshots/manual-qa/03-dashboard-global-ad.png) |
+
+| Dashboard Click Stats | Admin | Admin Search Enabled |
+| --- | --- | --- |
+| [![Dashboard Click Stats](./screenshots/manual-qa/04-dashboard-click-stats.png)](./screenshots/manual-qa/04-dashboard-click-stats.png) | [![Admin](./screenshots/manual-qa/05-admin.png)](./screenshots/manual-qa/05-admin.png) | [![Admin Search Enabled](./screenshots/manual-qa/06-admin-search-enabled.png)](./screenshots/manual-qa/06-admin-search-enabled.png) |
+
 ## Testing
 
 Current test coverage includes:
