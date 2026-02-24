@@ -2,6 +2,59 @@
 
 OpenAds is a Next.js + TypeScript ad platform for iOS 18+ apps.
 
+## Showcase
+
+Click any preview to open the full-size image.
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="./screenshots/01-landing.png"><img src="./screenshots/01-landing.png" alt="Landing" width="360" /></a>
+    </td>
+    <td align="center">
+      <a href="./screenshots/02-login.png"><img src="./screenshots/02-login.png" alt="Login" width="360" /></a>
+    </td>
+    <td align="center">
+      <a href="./screenshots/03-dashboard.png"><img src="./screenshots/03-dashboard.png" alt="Dashboard" width="360" /></a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">Landing</td>
+    <td align="center">Login (filled)</td>
+    <td align="center">Dashboard (filled)</td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="./screenshots/04-dashboard-with-ad.png"><img src="./screenshots/04-dashboard-with-ad.png" alt="Dashboard With Ad" width="360" /></a>
+    </td>
+    <td align="center">
+      <a href="./screenshots/05-admin.png"><img src="./screenshots/05-admin.png" alt="Admin" width="360" /></a>
+    </td>
+    <td align="center">
+      <a href="./screenshots/06-admin-search.png"><img src="./screenshots/06-admin-search.png" alt="Admin Search" width="360" /></a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">Dashboard Creative View</td>
+    <td align="center">Admin Console</td>
+    <td align="center">Admin Search Result</td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="./screenshots/07-register-open.png"><img src="./screenshots/07-register-open.png" alt="Register Open" width="360" /></a>
+    </td>
+    <td align="center">
+      <a href="./screenshots/08-dashboard-stats.png"><img src="./screenshots/08-dashboard-stats.png" alt="Dashboard Stats" width="360" /></a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="center">Register (open)</td>
+    <td align="center">Dashboard Stats</td>
+    <td></td>
+  </tr>
+</table>
+
 It provides:
 - A web portal for users and super admin
 - Credentials auth (email/password)
@@ -153,32 +206,6 @@ let ad = await client.initialize(appVersion: "1.0.0")
 Use `OpenAdsRewardedSession` and `OpenAdsRewardedView` for rewarded flow with callbacks for cancel/reward events.
 
 Full sample: `swift/OpenAdsSDK/Examples/IntegrationExample.swift`
-
-## Showcase
-
-Click any thumbnail to open the full-size image.
-
-| Landing | Login | Dashboard |
-| --- | --- | --- |
-| [![Landing](./screenshots/01-landing.png)](./screenshots/01-landing.png) | [![Login](./screenshots/02-login.png)](./screenshots/02-login.png) | [![Dashboard](./screenshots/03-dashboard.png)](./screenshots/03-dashboard.png) |
-
-| Dashboard With Ad | Admin | Admin Search |
-| --- | --- | --- |
-| [![Dashboard With Ad](./screenshots/04-dashboard-with-ad.png)](./screenshots/04-dashboard-with-ad.png) | [![Admin](./screenshots/05-admin.png)](./screenshots/05-admin.png) | [![Admin Search](./screenshots/06-admin-search.png)](./screenshots/06-admin-search.png) |
-
-| Register Open | Dashboard Stats |  |
-| --- | --- | --- |
-| [![Register Open](./screenshots/07-register-open.png)](./screenshots/07-register-open.png) | [![Dashboard Stats](./screenshots/08-dashboard-stats.png)](./screenshots/08-dashboard-stats.png) |  |
-
-### Manual QA States (Filled Data)
-
-| Dashboard Initial | Dashboard Two Apps | Dashboard Global Ad |
-| --- | --- | --- |
-| [![Dashboard Initial](./screenshots/manual-qa/01-dashboard-initial.png)](./screenshots/manual-qa/01-dashboard-initial.png) | [![Dashboard Two Apps](./screenshots/manual-qa/02-dashboard-two-apps.png)](./screenshots/manual-qa/02-dashboard-two-apps.png) | [![Dashboard Global Ad](./screenshots/manual-qa/03-dashboard-global-ad.png)](./screenshots/manual-qa/03-dashboard-global-ad.png) |
-
-| Dashboard Click Stats | Admin | Admin Search Enabled |
-| --- | --- | --- |
-| [![Dashboard Click Stats](./screenshots/manual-qa/04-dashboard-click-stats.png)](./screenshots/manual-qa/04-dashboard-click-stats.png) | [![Admin](./screenshots/manual-qa/05-admin.png)](./screenshots/manual-qa/05-admin.png) | [![Admin Search Enabled](./screenshots/manual-qa/06-admin-search-enabled.png)](./screenshots/manual-qa/06-admin-search-enabled.png) |
 
 ## Testing
 
