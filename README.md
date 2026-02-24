@@ -1,6 +1,23 @@
 # OpenAds
 
-OpenAds is a Next.js + TypeScript ad platform for iOS 18+ apps.
+OpenAds is an ad delivery and campaign management platform for app teams that need predictable rewarded ads across multiple mobile products.
+
+It solves the common mess of ad operations:
+- Campaigns spread across apps with no clear ownership
+- Wrong apps requesting ads by mistake
+- No reliable view of what was initialized, shown, canceled, rewarded, or clicked
+- No simple way to control who can onboard and manage inventory
+
+With OpenAds, each customer has isolated apps and creatives, bundle IDs are strictly controlled, and ad responses are served in a predictable, auditable way. You also get a lightweight Swift SDK so teams can integrate quickly and report ad events consistently.
+
+### What You Can Do With It
+
+- Manage apps and creatives from one portal
+- Assign creatives to one app or all owned apps
+- Return randomized eligible ads per request
+- Track ad funnel metrics from initialization to click
+- Enforce registration and ownership rules from an admin console
+- Block unsupported/unknown apps from receiving inventory
 
 ## Showcase
 
