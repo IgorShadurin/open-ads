@@ -1,65 +1,59 @@
-import Image from "next/image";
+import { ArrowRight, BarChart3, Gift, ShieldCheck, Smartphone } from "lucide-react";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+import { getSessionUser } from "@/server/auth/guards";
+
+export default async function HomePage() {
+  const user = await getSessionUser();
+
+  if (user) {
+    redirect("/dashboard");
+  }
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <section className="grid" style={{ gap: 20 }}>
+      <div className="hero">
+        <div className="panel" style={{ padding: 28 }}>
+          <span className="badge">iOS 18+ Rewarded Ads</span>
+          <h1 style={{ marginTop: 12 }}>Fast, predictable ad delivery for your iOS portfolio.</h1>
+          <p>
+            OpenAds gives each account isolated apps, ads, and analytics while keeping delivery rules strict by
+            bundle identifier.
           </p>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <Link href="/login" className="btn btn-primary">
+              <ArrowRight size={16} />
+              Open Portal
+            </Link>
+            <Link href="/register" className="btn btn-secondary">
+              <ShieldCheck size={16} />
+              Request Access
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid">
+          <div className="panel">
+            <h3>
+              <Smartphone size={18} style={{ verticalAlign: "text-bottom", marginRight: 6 }} /> SDK Endpoint
+            </h3>
+            <p>Apps request ad content by `bundleId`. Unknown apps are rejected immediately.</p>
+          </div>
+          <div className="panel">
+            <h3>
+              <Gift size={18} style={{ verticalAlign: "text-bottom", marginRight: 6 }} /> Rewarded Flow
+            </h3>
+            <p>Track shown/canceled/rewarded events with configurable durations (default 15s).</p>
+          </div>
+          <div className="panel">
+            <h3>
+              <BarChart3 size={18} style={{ verticalAlign: "text-bottom", marginRight: 6 }} /> Built-in Stats
+            </h3>
+            <p>View app initialization and ad event counters across every owned app.</p>
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </section>
   );
 }

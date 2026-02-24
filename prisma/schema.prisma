@@ -1,0 +1,129 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  SUPER_ADMIN
+  USER
+}
+
+enum Platform {
+  IOS
+}
+
+enum MediaType {
+  VIDEO
+  IMAGE
+}
+
+enum AdEventType {
+  INIT
+  SHOWN
+  CANCELED
+  REWARDED
+  CLICKED
+}
+
+enum AdScope {
+  APP_ONLY
+  ALL_APPS
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(USER)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  apps App[]
+  ads  Ad[]
+}
+
+model App {
+  id                    String    @id @default(cuid())
+  ownerId               String
+  owner                 User      @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  name                  String
+  bundleId              String    @unique
+  platform              Platform  @default(IOS)
+  isActive              Boolean   @default(true)
+  fallbackMediaType     MediaType?
+  fallbackMediaUrl      String?
+  fallbackClickUrl      String?
+  fallbackRewardSeconds Int       @default(15)
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  ads    Ad[]
+  stats  AppStat?
+  events AdEvent[]
+}
+
+model Ad {
+  id            String    @id @default(cuid())
+  ownerId       String
+  owner         User      @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  appId         String?
+  app           App?      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  scope         AdScope   @default(APP_ONLY)
+  title         String
+  mediaType     MediaType
+  mediaUrl      String
+  clickUrl      String?
+  rewardSeconds Int       @default(15)
+  priority      Int       @default(0)
+  isActive      Boolean   @default(true)
+  startsAt      DateTime?
+  endsAt        DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  events AdEvent[]
+
+  @@index([appId, updatedAt])
+  @@index([ownerId, scope, updatedAt])
+}
+
+model SiteSetting {
+  id                 Int      @id @default(1)
+  isRegistrationOpen Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model AppStat {
+  id            String   @id @default(cuid())
+  appId         String   @unique
+  app           App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  initCount     Int      @default(0)
+  shownCount    Int      @default(0)
+  canceledCount Int      @default(0)
+  rewardedCount Int      @default(0)
+  clickedCount  Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model AdEvent {
+  id              String      @id @default(cuid())
+  appId           String
+  app             App         @relation(fields: [appId], references: [id], onDelete: Cascade)
+  adId            String?
+  ad              Ad?         @relation(fields: [adId], references: [id], onDelete: SetNull)
+  eventType       AdEventType
+  platform        Platform    @default(IOS)
+  appVersion      String?
+  bundleIdSnapshot String
+  createdAt       DateTime    @default(now())
+
+  @@index([appId, createdAt])
+  @@index([eventType, createdAt])
+}
